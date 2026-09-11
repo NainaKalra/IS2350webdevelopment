@@ -245,6 +245,47 @@
       </div>
     </div>
   </section>
+  <!-- Contact Form -->
+  <section class="py-5 bg-light" id="contact">
+    <div class="container">
+      <h2 class="fw-bold border-bottom border-success border-3 pb-2 mb-4 d-inline-block">Contact Me</h2>
+  
+      <form id="contactForm" class="row g-3" style="max-width: 600px;" novalidate>
+        <div class="col-12">
+          <label for="fullName" class="form-label fw-semibold">Full Name</label>
+          <input type="text" class="form-control" id="fullName" placeholder="Your full name" required>
+        </div>
+        <div class="col-12">
+          <label for="message" class="form-label fw-semibold">Message</label>
+          <textarea class="form-control" id="message" rows="4" placeholder="Write your message here" required></textarea>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-success px-4">Contact me</button>
+        </div>
+        <div class="col-12">
+          <p id="confirmationMsg" class="text-success fw-semibold mt-2" style="display:none;"></p>
+        </div>
+      </form>
+    </div>
+  </section>
+  <!-- Javascript part - user enters msg and their response is submitted -->
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const fullName = document.getElementById('fullName').value;
+      const message = document.getElementById('message').value;
+
+      console.log('Full Name:', fullName);
+      console.log('Message:', message);
+
+      const confirmationMsg = document.getElementById('confirmationMsg');
+      confirmationMsg.textContent = 'Thanks, ' + fullName + '! Your message has been received.';
+      confirmationMsg.style.display = 'block';
+
+      document.getElementById('contactForm').reset();
+    });
+  </script>
 
   <!-- Footer -->
   <footer class="bg-dark text-white-50 text-center py-3 small">
